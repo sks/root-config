@@ -5,28 +5,32 @@
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="dist/main.css">
+     <script src="https://kit.fontawesome.com/debdf9e8ed.js" crossorigin="anonymous"></script>
      <title>Side Navigation</title>
 </head>
-<body>
-     <!-- Navbar -->
-     <nav class="relative container mx-auto p-6">
-          <!-- Flex container -->
-          <div class="flex items-center justify-between">
-               <!-- Logo -->
-               <div class="pt-2">
-                    <img src="./assets/images/logo.svg" alt="company logo" class="">
-               </div>
-               <!-- Menu items -->
-               <div class="hidden md:flex space-x-6">
-                    <a href="#" class="hover:text-darkGrayishBlue">Pricing</a>
-                    <a href="#" class="hover:text-darkGrayishBlue">Product</a>
-                    <a href="#" class="hover:text-darkGrayishBlue">About Us</a>
-                    <a href="#" class="hover:text-darkGrayishBlue">Careers</a>
-                    <a href="#" class="hover:text-darkGrayishBlue">Community</a>
-               </div>
-               <!-- Button -->
-               <a href="#" class="hidden md:block p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight">Get Started</a>
-          </div>
+<body class="relative min-h-screen flex">
+     <!-- Sidebar -->
+     <nav id="navigation-items" class="fixed top-0 left-0 h-screen w-16 m-0 flex flex-col bg-gray-900 text-white shadow-lg">
+          <!-- Nav -->
+          <!-- Button -->
      </nav>
 </body>
+<script>
+     const menuItems = [
+          { title: 'Test-1', icon: 'fa-cloud' },
+          { title: 'Test-2', icon: 'fa-heart' },
+          { title: 'Test-3', icon: 'fa-car' },
+          { title: 'Test-4', icon: 'fa-file' },
+          { title: 'Test-5', icon: 'fa-bars' },
+     ]
+
+     const navItems = document.getElementById("navigation-items")
+     menuItems.map(e => {
+          const aTag = document.createElement("div")
+          aTag.title = e.title
+          aTag.className += `group sidenav-icon`
+          aTag.innerHTML =  `<i class="fas ${e.icon}"></i><span class="group-hover:scale-100 sidenav-tooltip">${e.title}</span>`
+          return aTag
+     }).reverse().forEach(b => navItems.prepend(b))
+</script>
 </html>

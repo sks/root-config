@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+@layer components {
+     .sidenav-icon {
+          @apply relative flex items-center justify-center 
+               h-12 w-12 mt-2 mx-auto 
+               shadow-lg bg-gray-800 text-primary  hover:bg-green-600 hover:text-primaryLight 
+               rounded-3xl hover:rounded-xl
+               transition-all duration-200 ease-linear cursor-pointer;
+     }
+     .sidenav-tooltip{
+          @apply absolute w-auto p-2 m-2 min-w-max left-14 text-white bg-gray-900 text-xs
+          font-bold transition-all duration-100 scale-0 origin-left shadow-md rounded-xl;
+     }
+}
